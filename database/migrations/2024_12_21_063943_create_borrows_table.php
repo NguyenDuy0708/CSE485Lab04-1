@@ -17,18 +17,20 @@ return new class extends Migration
             $table->unsignedBigInteger('book_id');
             $table->date('borrow_date');
             $table->date('return_date');
-            $table->boolean('status')->default(0); // 0: Đang mượn, 1: Đã trả
+            $table->boolean('status')->default(0); // 0: Đang mượn, 1: Đãtrả
             $table->timestamps();
+            //đây là điểm khác biệt so với BTTH03 mà SV cần lưu ý
             $table->foreign('reader_id')->references('id')->on('readers');
             $table->foreign('book_id')->references('id')->on('books');
-        });
+            });
+
     }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
-    {
+    { 
         Schema::dropIfExists('borrows');
     }
 };

@@ -4,16 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Reader extends Model
+class reader extends Model
 {
+    //// Reader.php
     public function borrows()
-        {
-        return $this->hasMany(Borrow::class);
-        }
+{
+return $this->hasMany(Borrow::class);
+} 
     protected $fillable = [
         'name',
         'birthday',
         'address',
         'phone',
     ];
+
 }
